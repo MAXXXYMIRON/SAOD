@@ -1,0 +1,6 @@
+﻿  MainProg.cpp
+c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(5): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(8): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(25): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(40): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+  10.vcxproj -> C:\Users\KNIGH\Desktop\SAOD\10 - 11\Debug\10.exe
