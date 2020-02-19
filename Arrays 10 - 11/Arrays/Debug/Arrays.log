@@ -1,0 +1,4 @@
+﻿  WorkToArrays.cpp
+c:\users\knigh\desktop\saod\arrays 10 - 11\arrays\worktoarrays.cpp(11): warning C4244: return: преобразование "int" в "float", возможна потеря данных
+c:\users\knigh\desktop\saod\arrays 10 - 11\arrays\worktoarrays.cpp(25): warning C4244: return: преобразование "unsigned int" в "float", возможна потеря данных
+  Arrays.vcxproj -> C:\Users\KNIGH\Desktop\SAOD\Arrays 10 - 11\Debug\Arrays.exe

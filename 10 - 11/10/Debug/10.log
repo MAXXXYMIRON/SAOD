@@ -1,6 +1,10 @@
-﻿  MainProg.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (10.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  MainProg.cpp
 c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(5): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
 c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(8): warning C4305: инициализация: усечение из "double" в "float"
 c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(25): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(40): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-  10.vcxproj -> C:\Users\KNIGH\Desktop\SAOD\10 - 11\Debug\10.exe
+c:\users\knigh\desktop\saod\10 - 11\10\mainprog.cpp(39): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+  Module.cpp
+c:\users\knigh\desktop\saod\10 - 11\10\module.cpp(33): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+  Создание кода...
+  10.vcxproj -> C:\Users\KNIGH\Desktop\SAOD\10 - 11\Debug\10 - 11.exe

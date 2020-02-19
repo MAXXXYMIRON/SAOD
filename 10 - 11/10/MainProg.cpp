@@ -14,7 +14,7 @@ void main()
 	//Input("b", b);
 	//Input("c", c);
 
-					// 10 - задание 
+					// 10 - задание
 	if ((~((int)a | (int)b) & ((int)a ^ (int)c)) == 0)
 
 		for (float i = xB; i <= xE; i += xS)
@@ -28,7 +28,7 @@ void main()
 	cout << endl;
 	cout << endl;
 
-					// 11 - задание 
+					// 11 - задание
 	if ((((int)a & (int)b) ^ (int)c) == 0)
 
 		for (float i = xB; i <= xE; i += xS)
@@ -37,7 +37,7 @@ void main()
 
 		for (float i = xB; i <= xE; i += xS)
 			Output((int)F_11(i, a, b, c), i, "F_11");
-		
-	
+
+
 	system("pause");
 }
