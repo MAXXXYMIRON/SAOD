@@ -71,7 +71,7 @@ float SumAbsNumberAfterNeg(float* Arr, unsigned len)
 }
 
 //Удалить из массива числа в диапазоне от а до b, записать в конец нули
-void SqueezeArray(float Arr[], unsigned len, const float &a, const float &b)
+void SqueezeArray(float* Arr, unsigned len, const float &a, const float &b)
 {
 	float* Arr2 = new float[len];	
 	unsigned k = 0;

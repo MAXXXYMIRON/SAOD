@@ -11,6 +11,8 @@ float SumElAfterZero(int* &Arr, unsigned len);
 //¬ первой половине числа с четным индексом, во второй с нечетным
 void FirstHalfIsEven_SecondIsNotEven(int* &Arr, unsigned len);
 
+
+
 //Ќомер минимального элемента
 unsigned NumberMinElement(float* Arr, unsigned len);
 
@@ -18,4 +20,4 @@ unsigned NumberMinElement(float* Arr, unsigned len);
 float SumAbsNumberAfterNeg(float* Arr, unsigned len);
 
 //”далить из массива числа в диапазоне от а до b, записать в конец нули
-void SqueezeArray(float Arr[], unsigned len, const float &a, const float &b);
+void SqueezeArray(float* Arr, unsigned len, const float &a, const float &b);
