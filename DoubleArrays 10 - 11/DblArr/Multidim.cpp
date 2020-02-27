@@ -19,7 +19,7 @@ void InicRand(float** &Arr, const unsigned &Row, const  unsigned &Col)
 	{
 		for (unsigned j = 0; j < Col; j++)
 		{
-			Arr[i][j] = (rand() % 1000 - 1) / 100.;
+			Arr[i][j] = (rand() % 1000 - 1) / 100;
 		}
 	}
 }
@@ -58,36 +58,46 @@ bool LocalMin(float** &Arr, const unsigned &Row, const  unsigned &Col,
 	if (IndR >= Row || IndR < 0 || IndC >= Col || IndC < 0) return false;
 
 	if (IndR == 0 && 0 == IndC)
-		return (Arr[IndR][IndC] < Arr[IndR][IndC + 1] && Arr[IndR][IndC] < Arr[IndR + 1][IndC]);
+		return (Arr[IndR][IndC] < Arr[IndR][IndC + 1] && Arr[IndR][IndC] < Arr[IndR + 1][IndC]
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC + 1]);
 
-	else if (IndR == Row - 1 && Row - 1 == IndC)
-		return (Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]);
+	else if (IndR == Row - 1 && Col - 1 == IndC)
+		return (Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC - 1]);
 
 	else if (IndR == 0 && IndC == Col - 1)
-		return (Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC - 1]);
+		return (Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC - 1]
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC - 1]);
 
 	else if (IndR == Row - 1 && IndC == 0)
-		return (Arr[IndR][IndC] < Arr[IndR - 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC + 1]);
+		return (Arr[IndR][IndC] < Arr[IndR - 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC + 1]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC + 1]);
 
 	else if (IndR == 0)
 		return(Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC + 1]
-			&& Arr[IndR][IndC] < Arr[IndR][IndC - 1]);
+			&& Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR + 1][IndC - 1]
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC + 1]);
 
 	else if (IndR == Row - 1)
 		return(Arr[IndR][IndC] < Arr[IndR - 1][IndC] && Arr[IndR][IndC] < Arr[IndR][IndC + 1]
-			&& Arr[IndR][IndC] < Arr[IndR][IndC - 1]);
+			&& Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR - 1][IndC - 1]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC + 1]);
 
 	else if (IndC == 0) 
 		return(Arr[IndR][IndC] < Arr[IndR][IndC + 1] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]
-			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC]);
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR - 1][IndC + 1]
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC + 1]);
 
 	else if (IndC == Col - 1)
 		return(Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]
-			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC]);
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR + 1][IndC - 1]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC - 1]);
 
 	else
 		return(Arr[IndR][IndC] < Arr[IndR][IndC - 1] && Arr[IndR][IndC] < Arr[IndR][IndC + 1]
-			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]);
+			&& Arr[IndR][IndC] < Arr[IndR + 1][IndC] && Arr[IndR][IndC] < Arr[IndR - 1][IndC]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC - 1] && Arr[IndR][IndC] < Arr[IndR + 1][IndC - 1]
+			&& Arr[IndR][IndC] < Arr[IndR - 1][IndC + 1] && Arr[IndR][IndC] < Arr[IndR + 1][IndC + 1]);
 }
 
 
@@ -113,7 +123,23 @@ float SumElHigMainDiag(float** &Arr, const unsigned &Row, const  unsigned &Col)
 //Привести матрицу к треугольному виду
 void TriangleView(float** &Arr, const unsigned &Row, const  unsigned &Col)
 {
-	Arr = matrixJardanGaus(Arr, Row, Col);
+	unsigned index = 0,
+		pred = (Col > Row) ? Row - 1 : Col - 1;
+
+	for (unsigned j = 0; j < pred; j++)
+		for (unsigned i = 0; i < pred - j; i++)
+		{
+			if (Arr[i][j] == 0) continue;
+			index = i + 1;
+			while (Arr[index][j] == 0)
+			{
+				index++;
+				if (index == pred) break;
+			}
+
+			for (unsigned k = 0; k < Col; k++)
+				Arr[i][k] = (Arr[i][k] * Arr[index][j]) - (Arr[index][k] * Arr[i][j]);
+		}
 }
 
 
